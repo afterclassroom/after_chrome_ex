@@ -1,0 +1,30 @@
+.con-ticks a{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    .con-ticks .dropdown-menu{
+        min-width: 226px;
+        margin-top: 0px;
+    }
+    .con-ticks .dropdown-menu a{
+        text-decoration: none;
+        font-weight: normal;
+    }
+    .con-ticks .dropdown-menu span{
+        line-height: 21px;
+    }
+	.embed-container {
+    position: relative;
+    padding-top: 30px; /* IE6 workaround*/
+    height: 0;
+    overflow: hidden;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
