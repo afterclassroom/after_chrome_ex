@@ -12,6 +12,7 @@
     }
     .con-ticks .dropdown-menu span{
         line-height: 21px;
+		white-space: normal;
     }
 	.embed-container {
     position: relative;
