@@ -119,8 +119,12 @@ doorkeeper.authorize(function() {
 		description = '<span style="float: left;margin-right: 10px"><img src="' + image + '" style="height: 145px;width: 145px"></span>' + description;
 	}
 	
-	$('#title').val(title);
-	$('#description').html(description);
+	if (title != 'false'){
+		$('#title').val(title);
+	}
+	if (description != 'false'){
+		$('#description').html(description);
+	}
 	$('#send_bt').removeAttr('disabled');
 	$('#send_bt').click(function(){
 		if ($('input[name="classroom_ids[]"]:checked').length > 0){

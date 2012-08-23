@@ -4,7 +4,7 @@ OAuth2.adapter('after', {
    */
   authorizationCodeURL: function(config) {
     return 'http://dev.afterclassroom.com/oauth/authorize?\
-response_type=code&client_id={{CLIENT_ID}}&redirect_uri={{REDIRECT_URI}}&scope={{API_SCOPE}}'
+response_type=code&client_id={{CLIENT_ID}}&redirect_uri={{REDIRECT_URI}}&scope={{API_SCOPE}}&approval_prompt=force'
         .replace('{{CLIENT_ID}}', config.clientId)
         .replace('{{REDIRECT_URI}}', this.redirectURL(config))
         .replace('{{API_SCOPE}}', config.apiScope);
