@@ -12,9 +12,9 @@
     }
     .con-ticks .dropdown-menu span{
         line-height: 21px;
-		white-space: normal;
+        white-space: normal;
     }
-	.embed-container {
+  .embed-container {
     position: relative;
     padding-top: 30px; /* IE6 workaround*/
     height: 0;
