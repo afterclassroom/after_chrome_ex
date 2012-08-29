@@ -20,11 +20,7 @@
 
 // Get all ? params from this URL
 var url = window.location.href;
-var params = '?';
-var index = url.indexOf(params);
-if (index > -1) {
-  params = url.substring(index);
-}
+var params = url.substring(url.indexOf('?'));
 
 // Also append the current URL to the params
 params += '&from=' + encodeURIComponent(url);
