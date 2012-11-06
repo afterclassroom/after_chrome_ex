@@ -13,7 +13,7 @@
     "128": "images/icon_128.png"
   },
   "content_scripts": [{
-    "matches": ["http://dev.afterclassroom.com/robots.txt*"],
+    "matches": ["http://pesome.com/robots.txt*"],
       "css": [ "css/main.css" ],
       "js": [
 		"oauth2/oauth2_inject.js",
@@ -23,7 +23,7 @@
 	  "run_at": "document_start"
   }],
   "permissions": [
-      "http://dev.afterclassroom.com/oauth/*",
+      "http://pesome.com/oauth/*",
       "tabs"
   ]
 }

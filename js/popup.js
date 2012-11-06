@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-var doorkeeper = new OAuth2('after', {
-  client_id: 'c7c97349e6ef49912d87fb762023c3b2958fc6f559f73927b3cd0262dd1c8bd5',
-  client_secret: 'd8ce0fc0ba134424d8aa6c73d19637c0e5a61a59364849eab1e93d9c811b9ebb',
+var pesome = new OAuth2('pesome', {
+  client_id: '6592ba0a7c9bdb2a8d6ac20f645b4b2f',
+  client_secret: 'ee177b9cab8d88da92b7196208102f4e',
   api_scope: 'public'
 });
 
-doorkeeper.authorize(function() {
+pesome.authorize(function() {
 
 	$('#loading').hide();
 	$('#form_tick').show();
@@ -29,16 +29,16 @@ doorkeeper.authorize(function() {
 		chrome.tabs.create({'url' : $(this).attr('href')});  
 	});
 	
-	var URL = 'http://dev.afterclassroom.com';
+	var URL = 'http://pesome.com';
 	
 	callApi('getMe', URL + '/api/users/me', 'GET', '');
 	callApi('tagList', URL + '/api/tags/list', 'GET', '');
-	callApi('members', URL + '/api/classrooms/members', 'GET', '');
+	callApi('members', URL + '/api/petopics/all_members', 'GET', '');
 	
 	chrome.tabs.getSelected(null,function(tab) {
 	   var link = tab.url;
 	   var params = 'link=' + escape(link);
-	   callApi('tickAttach', URL + '/api/ticks/attach_link', 'POST', params);
+	   callApi('tickAttach', URL + '/api/peticks/attach_link', 'POST', params);
 	   $('#link').html(link);
 	   $('#link').attr('href', link);
 	});
@@ -66,7 +66,7 @@ doorkeeper.authorize(function() {
     xhr.setRequestHeader('Content-length', params.length);
     xhr.setRequestHeader('Connection', 'close');
 	
-    xhr.setRequestHeader('Authorization', 'Bearer ' + doorkeeper.getAccessToken());
+    xhr.setRequestHeader('Authorization', 'Bearer ' + pesome.getAccessToken());
     xhr.send(params);
   };
   
@@ -94,7 +94,7 @@ doorkeeper.authorize(function() {
   }
   
   function members(results){
-	var classrooms = jsonPath(results, '$..classroom');
+	var classrooms = jsonPath(results, '$..petopic');
 	var cl_list = $('#cl_list');
 	jQuery.each(classrooms, function(i, v) {
 		var st = '<li><a href="#"><label class="checkbox"><input name="classroom_ids[]" value="' + v.id + '" type="checkbox" /><span>' + v.title + '</span></label></a></li>';
@@ -153,6 +153,6 @@ doorkeeper.authorize(function() {
       val[i] = $(this).val();
     });
 	var params = 'link=' + escape(link) + '&title=' + title + '&tags=' + tags + '&classroom_ids=' + val;
-	callApi('saveComplete', URL + '/api/ticks', 'POST', params);
+	callApi('saveComplete', URL + '/api/peticks', 'POST', params);
   }
 });
