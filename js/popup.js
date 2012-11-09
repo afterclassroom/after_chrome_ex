@@ -15,8 +15,8 @@
  */
 
 var pesome = new OAuth2('pesome', {
-  client_id: '6592ba0a7c9bdb2a8d6ac20f645b4b2f',
-  client_secret: 'ee177b9cab8d88da92b7196208102f4e',
+  client_id: '38af2b99adb35fba6add3baca152fef4',
+  client_secret: '31d1cf26470694e442d1324a9ac98be6',
   api_scope: 'public'
 });
 
@@ -29,7 +29,7 @@ pesome.authorize(function() {
 		chrome.tabs.create({'url' : $(this).attr('href')});  
 	});
 	
-	var URL = 'http://192.168.80.128:3000';
+	var URL = 'http://pesome.com';
 	
 	callApi('getMe', URL + '/api/users/me', 'GET', '');
 	callApi('tagList', URL + '/api/tags/list', 'GET', '');
@@ -77,7 +77,7 @@ pesome.authorize(function() {
 	
 	var link_mytick = URL + "/my_posts";
 	
-	$('.userImage').attr('src', URL + image);
+	$('.userImage').attr('src', image);
 	$('.userName').html(name.toString());
 
 	$('.myTick').click(function(){
