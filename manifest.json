@@ -13,7 +13,7 @@
     "128": "images/icon_128.png"
   },
   "content_scripts": [{
-    "matches": ["http://pesome.com/robots.txt*"],
+    "matches": ["http://192.168.80.128:3000/robots.txt*"],
       "css": [ "css/main.css" ],
       "js": [
 		"oauth2/oauth2_inject.js",
@@ -23,7 +23,7 @@
 	  "run_at": "document_start"
   }],
   "permissions": [
-      "http://pesome.com/oauth/*",
+      "http://192.168.80.128:3000/oauth/*",
       "tabs"
   ]
 }

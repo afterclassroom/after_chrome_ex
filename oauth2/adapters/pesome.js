@@ -3,7 +3,7 @@ OAuth2.adapter('pesome', {
    * @return {URL} URL to the page that returns the authorization code
    */
   authorizationCodeURL: function(config) {
-    return 'http://pesome.com/oauth/authorize?\
+    return 'http://192.168.80.128:3000/oauth/authorize?\
 response_type=code&client_id={{CLIENT_ID}}&redirect_uri={{REDIRECT_URI}}&scope={{API_SCOPE}}&approval_prompt=force'
         .replace('{{CLIENT_ID}}', config.clientId)
         .replace('{{REDIRECT_URI}}', this.redirectURL(config))
@@ -15,7 +15,7 @@ response_type=code&client_id={{CLIENT_ID}}&redirect_uri={{REDIRECT_URI}}&scope={
    * script into
    */
   redirectURL: function(config) {
-    return 'http://pesome.com/robots.txt';
+    return 'http://192.168.80.128:3000/robots.txt';
   },
 
   /**
@@ -33,7 +33,7 @@ response_type=code&client_id={{CLIENT_ID}}&redirect_uri={{REDIRECT_URI}}&scope={
    * @return {URL} URL to the access token providing endpoint
    */
   accessTokenURL: function() {
-    return 'http://pesome.com/oauth/token';
+    return 'http://192.168.80.128:3000/oauth/token';
   },
 
   /**

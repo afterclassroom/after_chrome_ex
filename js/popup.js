@@ -29,7 +29,7 @@ pesome.authorize(function() {
 		chrome.tabs.create({'url' : $(this).attr('href')});  
 	});
 	
-	var URL = 'http://pesome.com';
+	var URL = 'http://192.168.80.128:3000';
 	
 	callApi('getMe', URL + '/api/users/me', 'GET', '');
 	callApi('tagList', URL + '/api/tags/list', 'GET', '');
@@ -152,7 +152,7 @@ pesome.authorize(function() {
     $('input[name="classroom_ids[]"]:checked').each(function(i){
       val[i] = $(this).val();
     });
-	var params = 'link=' + escape(link) + '&title=' + title + '&tags=' + tags + '&classroom_ids=' + val;
+	var params = 'link=' + escape(link) + '&title=' + title + '&tags=' + tags + '&petopic_ids=' + val;
 	callApi('saveComplete', URL + '/api/peticks', 'POST', params);
   }
 });
